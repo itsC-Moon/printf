@@ -1,50 +1,54 @@
 #include "main.h"
+#include <stdio.h>
+
 /**
- * _printf - its damm f*cking  printf
- * @format: char
- * Return: number char that print
+ * _printf - takes a string and args of each '%'
+ * and prints them
+ * @format: initial string containing % +
+ * char denoting type and number of args
+ * @...: variable list of arguments
+ *
+ * Return: number of characters printed.
  */
 int _printf(const char *format, ...)
 {
-	int i = 0;
-	va_list ap;
-	int len = 0;
+	int i, j;
+	int count = 0;
+	va_list lst;
+	interface ids[] = {
+		{'c', _print_char},
+		{'s', _print_string},
+		{'i', _print_int},
+		{'d', _print_int},
+		{'%', _print_mod},
+		{'\0', NULL}
+	};
 
-	va_start(ap, format);
-	if (!format || (format[0] == '%' && !format[1]))
-		return (-1);
-	if (format[0] == '%' && format[1] == ' ' && !format[2])
-		return (-1);
-	while (format && format[i])
-	{
-
-		if (format[i] == '%' && format[i + 1])
+	va_start(lst, format);
+	for (i = 0; format[i]; i++)
+		if (format[i] == '%')
 		{
-			if (!is_valide_format(format[i + 1]))
+			i++;
+			for (; format[i] != '\0'; i++)
 			{
-				i++;
+				for (j = 0; ids[j].id != '\0'; j++)
+					if (format[i] == ids[j].id)
+					{
+						count += ids[j].fn(lst);
+						break;
+					}
+				if (ids[j].id)
+					break;
 			}
-			switch (format[i + 1])
-			{
-			case 's':
-			case 'c':
-			case 'i':
-			case 'd':
-			case '%':
-				len += print(ap, format[i + 1]);
-				i++;
-				break;
-			default:
-				_putchar('%');
-			}
+			if (format[i] == '\0')
+				return (-1);
 		}
 		else
 		{
-			_putchar(format[i]);
-			len++;
+			write(1, &format[i], 1);
+			count += 1;
 		}
-		i++;
-	}
-	va_end(ap);
-	return (len);
+
+	va_end(lst);
+	return (count);
 }
