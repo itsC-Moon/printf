@@ -17,8 +17,7 @@ int print(va_list ap, char format)
 		len += _puts(va_arg(ap, char *));
 		break;
 	case 'c':
-		_putchar(va_arg(ap, int));
-		len++;
+		len += _putchar(va_arg(ap, int));
 		break;
 	case 'd':
 	case 'i':
@@ -27,8 +26,7 @@ int print(va_list ap, char format)
 		len += _intlen(buffer);
 		break;
 	case '%':
-		_putchar('%');
-		len++;
+		len += _putchar('%');
 		break;
 	}
 	return (len);

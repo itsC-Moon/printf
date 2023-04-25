@@ -3,11 +3,11 @@
 /**
  * _putchar - print char
  * @c: char
- * Return: void
+ * Return: int
  */
-void _putchar(char c)
+int _putchar(char c)
 {
-	write(1, &c, 1);
+	return (write(1, &c, 1));
 }
 /**
  * _puts - print string
