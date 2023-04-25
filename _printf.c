@@ -29,6 +29,8 @@ int _printf(const char *format, ...)
 				len += print(ap, format[i + 1]);
 				i++;
 				break;
+			default:
+				_putchar('%');
 			}
 		}
 		else
