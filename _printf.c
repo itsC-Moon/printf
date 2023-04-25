@@ -8,6 +8,7 @@ int _printf(const char *format, ...)
 {
 	int i = 0;
 	va_list ap;
+	int len = 0;
 
 	va_start(ap, format);
 	while (format && format[i])
@@ -17,27 +18,21 @@ int _printf(const char *format, ...)
 			switch (format[i + 1])
 			{
 			case 's':
-				_puts(va_arg(ap, char *));
-				i++;
-
-				break;
 			case 'c':
-				_putchar(va_arg(ap, int));
-				i++;
-				break;
+			case 'i':
 			case 'd':
-				print_number(va_arg(ap, int));
+				len += print(ap, format[i + 1]);
 				i++;
-				break;
-			default:
-				_putchar('%');
 				break;
 			}
 		}
 		else
+		{
 			_putchar(format[i]);
+			len++;
+		}
 		i++;
 	}
 	va_end(ap);
-	return (0);
+	return (len);
 }

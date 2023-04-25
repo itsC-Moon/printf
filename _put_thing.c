@@ -11,15 +11,18 @@ void _putchar(char c)
 /**
  * _puts - print string
  * @str: pointer to string
- * Return: void
+ * Return: n of char print
  */
-void _puts(char *str)
+int _puts(char *str)
 {
-	while (*str)
+	int i = 0;
+
+	while (str[i])
 	{
-		write(1, str, 1);
-		str++;
+		write(1, &str[i], 1);
+		i++;
 	}
+	return (i);
 }
 /**
  * print_number - print numbers chars
