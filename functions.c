@@ -44,8 +44,7 @@ int _print_string(va_list ls)
 	char *sbuf = va_arg(ls, char *);
 
 	if (sbuf == NULL)
-		sbuf = "(null)";
-
+		return (0);
 	for (i = 0; sbuf[i]; i++)
 	{
 		write(1, &sbuf[i], 1);
