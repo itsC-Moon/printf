@@ -19,6 +19,8 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%' && format[i + 1])
 		{
+			while(format[i+1] == ' ')
+				i++;
 			switch (format[i + 1])
 			{
 			case 's':
