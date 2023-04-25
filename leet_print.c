@@ -41,6 +41,7 @@ int print(va_list ap, char format)
 int is_valide_format(char c)
 {
 	int flag = 0;
+
 	switch (c)
 	{
 	case 's':
