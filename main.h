@@ -4,6 +4,7 @@
 #include <stdarg.h>
 int _printf(const char *format, ...);
 int print(va_list ap, char format);
+int is_valide_format(char c);
 void _putchar(char c);
 int _strlen(char *str);
 int _intlen(int n);

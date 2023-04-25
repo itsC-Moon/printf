@@ -17,10 +17,13 @@ int _printf(const char *format, ...)
 		return (-1);
 	while (format && format[i])
 	{
+
 		if (format[i] == '%' && format[i + 1])
 		{
-			while(format[i+1] == ' ')
+			if (!is_valide_format(format[i + 1]))
+			{
 				i++;
+			}
 			switch (format[i + 1])
 			{
 			case 's':
