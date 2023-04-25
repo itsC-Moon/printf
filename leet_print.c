@@ -52,5 +52,5 @@ int is_valide_format(char c)
 		flag = 1;
 		break;
 	}
-	return flag;
+	return (flag);
 }

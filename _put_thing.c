@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include "main.h"
 /**
  * _putchar - print char
  * @c: char
@@ -10,20 +11,30 @@ void _putchar(char c)
 }
 /**
  * _puts - print string
- * @str: pointer to string
+ * @s: pointer to string
  * Return: n of char print
  */
-int _puts(char *str)
+int _puts(char *s)
 {
-	int i = 0;
+	int i, len;
 
-	while (str[i])
+	if (s == NULL)
 	{
-		write(1, &str[i], 1);
-		i++;
+		s = "(null)";
+		len = _strlen(s);
+		for (i = 0; i < len; i++)
+			_putchar(s[i]);
+		return (len);
 	}
-	return (i);
+	else
+	{
+		len = _strlen(s);
+		for (i = 0; i < len; i++)
+			_putchar(s[i]);
+		return (len);
+	}
 }
+
 /**
  * print_number - print numbers chars
  * @n: integer params
