@@ -21,6 +21,7 @@ int _printf(const char *format, ...)
 			case 'c':
 			case 'i':
 			case 'd':
+			case '%':
 				len += print(ap, format[i + 1]);
 				i++;
 				break;
