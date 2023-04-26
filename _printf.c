@@ -29,7 +29,7 @@ int _printf(const char *format, ...)
 				i++;
 				break;
 			default:
-				_putchar('%');
+				len += _putchar('%');
 			}
 		}
 		else

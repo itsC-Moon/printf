@@ -20,6 +20,7 @@ int _strlen(char *str)
 int _intlen(int n)
 {
 	int i = 0;
+	if( n < 0)
 
 	while (n != 0)
 	{

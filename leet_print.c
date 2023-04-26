@@ -31,24 +31,3 @@ int print(va_list ap, char format)
 	}
 	return (len);
 }
-/**
- * is_valide_format - its damm f*cking  printf cheap copy
- * @c: char
- * Return: number char that print
- */
-int is_valide_format(char c)
-{
-	int flag = 0;
-
-	switch (c)
-	{
-	case 's':
-	case 'c':
-	case 'i':
-	case 'd':
-	case '%':
-		flag = 1;
-		break;
-	}
-	return (flag);
-}
