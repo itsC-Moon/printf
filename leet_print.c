@@ -28,6 +28,10 @@ int print(va_list ap, char format)
 	case '%':
 		len += _putchar('%');
 		break;
+	case 'b':
+		buffer = va_arg(ap, int);
+		len += 1;
+		print_binary(buffer, &len);
 	}
 	return (len);
 }

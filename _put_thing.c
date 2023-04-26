@@ -59,3 +59,17 @@ void print_number(int n)
 	}
 	_putchar((n1 % 10) + '0');
 }
+/**
+ * print_binary - print numbers bin
+ * @n: integer params
+ * Return: 0
+ */
+void print_binary(unsigned int number, int *len)
+{
+	if (number >> 1)
+	{
+		print_binary(number >> 1, len);
+		*len = *len + 1;
+	}
+	_putchar((number & 1) ? '1' : '0');
+}
