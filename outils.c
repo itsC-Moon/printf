@@ -20,12 +20,13 @@ int _strlen(char *str)
 int _intlen(int n)
 {
 	int i = 0;
-	if( n < 0)
 
-	while (n != 0)
-	{
-		n /= 10;
-		i++;
-	}
+	if (n < 0)
+
+		while (n != 0)
+		{
+			n /= 10;
+			i++;
+		}
 	return (i);
 }
