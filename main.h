@@ -11,5 +11,8 @@ int _intlen(int n);
 int _puts(char *str);
 void print_binary(unsigned int number, int *len);
 void print_number(int n);
+void print_unsigned(unsigned int n);
+unsigned int u_intlen(unsigned int n);
+
 
 #endif /* OUTPUT_F*/

@@ -6,9 +6,9 @@
  * Return: number char that print
  */
 int print(va_list ap, char format)
-
 {
 	int buffer;
+	unsigned int buffer_u;
 	int len = 0;
 
 	switch (format)
@@ -29,9 +29,14 @@ int print(va_list ap, char format)
 		len += _putchar('%');
 		break;
 	case 'b':
-		buffer = va_arg(ap, int);
 		len += 1;
-		print_binary(buffer, &len);
+		print_binary(va_arg(ap, int), &len);
+		break;
+	case 'u':
+		buffer_u = va_arg(ap, unsigned int);
+		print_unsigned(buffer_u);
+		len += u_intlen(buffer_u);
+		break;
 	}
 	return (len);
 }

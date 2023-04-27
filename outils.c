@@ -30,3 +30,19 @@ int _intlen(int n)
 	}
 	return (i);
 }
+/**
+ * u_intlen - len of int
+ * @n: unsigned int
+ * Return: len of int
+ */
+unsigned int u_intlen(unsigned int n)
+{
+	unsigned int i = 1;
+
+	while (n != 0)
+	{
+		n /= 10;
+		i++;
+	}
+	return (i);
+}
